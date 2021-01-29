@@ -5,7 +5,7 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
 
-
+    enum CubeFa
 
     public GameObject cubePrefab;
     public GameObject prevCube;
