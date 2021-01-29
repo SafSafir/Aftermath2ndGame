@@ -5,27 +5,21 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
 
-    enum CubeFieldStates
-    {
-        UpField,
-        RightField,
-        LeftField,
-        FrontField,
-        BackField
-    }
+
 
     public GameObject cubePrefab;
-    
+    public GameObject prevCube;
+
 
 
     public Vector3 lastEndPoint;
 
 
 
+
     private void Update()
     {
         CreateCubeOnClick();
-        //Debug.Log(lastEndPoint);
     }
 
 
@@ -36,9 +30,17 @@ public class CubeController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            
+            
+            
             GameObject currentCube = Instantiate(cubePrefab, lastEndPoint, Quaternion.identity);
             Cube cubeScript = currentCube.GetComponent<Cube>();
             lastEndPoint = cubeScript.ReturnEndPoint();
+
+
+            prevCube.AddComponent<FixedJoint>().connectedBody = currentCube.GetComponent<Rigidbody>();
+
+            prevCube = currentCube;
         }
     }
 

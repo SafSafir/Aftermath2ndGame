@@ -13,7 +13,7 @@ public class Cube : MonoBehaviour
     public Vector3 ReturnEndPoint()
     {
 
-        Vector3 CalculatedEndPoint = transform.position + Vector3.up;
+        Vector3 CalculatedEndPoint = transform.position + Vector3.right;
 
         return CalculatedEndPoint;
     }
