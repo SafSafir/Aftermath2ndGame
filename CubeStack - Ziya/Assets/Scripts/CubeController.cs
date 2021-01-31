@@ -5,7 +5,6 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
 
-    enum CubeFa
 
     public GameObject cubePrefab;
     public GameObject prevCube;
@@ -20,6 +19,7 @@ public class CubeController : MonoBehaviour
     private void Update()
     {
         CreateCubeOnClick();
+        //Debug.Log(lastEndPoint);
     }
 
 
@@ -33,7 +33,7 @@ public class CubeController : MonoBehaviour
             
             
             
-            GameObject currentCube = Instantiate(cubePrefab, lastEndPoint, Quaternion.identity);
+            GameObject currentCube = Instantiate(cubePrefab, lastEndPoint, prevCube.transform.rotation);
             Cube cubeScript = currentCube.GetComponent<Cube>();
             lastEndPoint = cubeScript.ReturnEndPoint();
 

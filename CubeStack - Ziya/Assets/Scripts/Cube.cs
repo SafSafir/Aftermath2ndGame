@@ -5,16 +5,18 @@ using UnityEngine;
 public class Cube : MonoBehaviour
 {
 
-
+    Vector3 calculatedEndPoint;
+    private void Awake()
+    {
+        calculatedEndPoint = GetComponentInChildren<Transform>().position;
+        Debug.Log(calculatedEndPoint);
+    }
     /// <summary>
     /// This method is for detecting the last end point
     /// </summary>
     /// <returns></returns>
     public Vector3 ReturnEndPoint()
     {
-
-        Vector3 CalculatedEndPoint = transform.position + Vector3.right;
-
-        return CalculatedEndPoint;
+        return calculatedEndPoint;
     }
 }
