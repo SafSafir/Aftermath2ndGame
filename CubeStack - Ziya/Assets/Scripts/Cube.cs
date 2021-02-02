@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-
-    Vector3 calculatedEndPoint;
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        calculatedEndPoint = GetComponentInChildren<Transform>().position;
-        Debug.Log(calculatedEndPoint);
+        
     }
-    /// <summary>
-    /// This method is for detecting the last end point
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 ReturnEndPoint()
+
+    // Update is called once per frame
+    void Update()
     {
-        return calculatedEndPoint;
+        
     }
 }
