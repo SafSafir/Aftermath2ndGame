@@ -35,8 +35,9 @@ public class CubeController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            
             cube.isInCurrentCube = false;
-            newCube = Instantiate(this.gameObject, facesOccupationController.cubeRight.transform.position, Quaternion.identity);
+            newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, Quaternion.identity);
             DisableCurrentCubeFeatures();
         }
     }

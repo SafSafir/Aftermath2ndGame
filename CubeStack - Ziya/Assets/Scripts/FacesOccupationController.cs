@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class FacesOccupationController : MonoBehaviour
 {
-    [Header("Cube Faces")]
-    public GameObject cubeRight;
-    public GameObject cubeBack;
-    public GameObject cubeLeft;
-    public GameObject cubeFront;
-    public GameObject cubeUp;
 
-    [Header("Faces of Cube Occupation State")]
-    public bool isRightOccupied = false;
-    public bool isBackOccupied = false;
-    public bool isLeftOccupied = false;
-    public bool isFrontOccupied = false;
-    public bool isUpOccupied = false;
 
+    public GameObject transparentCube;
+
+
+    public GameObject[] cubeFaces;
+
+    public bool[] isOccupied;
 
     Cube cube;
 
+    private int cubeFaceCounter;
 
     private bool isGameStarted;
 
@@ -29,7 +24,18 @@ public class FacesOccupationController : MonoBehaviour
 
         cube = GetComponent<Cube>();
 
+        cubeFaceCounter = 0;
+
         isGameStarted = true;
+    }
+
+    private void Start()
+    {
+        if (cube.isInCurrentCube)
+        {
+          StartCoroutine(RoamAroundUnoccupiedFacesOfCurrentCube());
+        }
+        
     }
 
 
@@ -38,17 +44,21 @@ public class FacesOccupationController : MonoBehaviour
         RemoveFacesColliderBasedOnFaceOccupation();
     }
 
+
+   
+
+
     private void RightSideCollisionDetection()
     {
         if (cube.isInCurrentCube)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(cubeRight.transform.position, 0.1f);
+            Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[0].transform.position, 0.1f);
 
             int i = 0;
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
-                isRightOccupied = true;
+                isOccupied[0] = true;
                 //Output all of the collider names
                 Debug.Log("Hit Right: " + hitColliders[i].name + i);
                 //Increase the number of Colliders in the array
@@ -62,13 +72,13 @@ public class FacesOccupationController : MonoBehaviour
     {
         if (cube.isInCurrentCube)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(cubeBack.transform.position, 0.1f);
+            Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[1].transform.position, 0.1f);
 
             int i = 0;
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
-                isBackOccupied = true;
+                isOccupied[1] = true;
                 //Output all of the collider names
                 Debug.Log("Hit Back: " + hitColliders[i].name + i);
                 //Increase the number of Colliders in the array
@@ -83,13 +93,13 @@ public class FacesOccupationController : MonoBehaviour
     {
         if (cube.isInCurrentCube)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(cubeLeft.transform.position, 0.1f);
+            Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[2].transform.position, 0.1f);
 
             int i = 0;
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
-                isLeftOccupied = true;
+                isOccupied[2] = true;
                 //Output all of the collider names
                 Debug.Log("Hit Left: " + hitColliders[i].name + i);
                 //Increase the number of Colliders in the array
@@ -103,13 +113,13 @@ public class FacesOccupationController : MonoBehaviour
     {
         if (cube.isInCurrentCube)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(cubeFront.transform.position, 0.1f);
+            Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[3].transform.position, 0.1f);
 
             int i = 0;
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
-                isFrontOccupied = true;
+                isOccupied[3] = true;
                 //Output all of the collider names
                 Debug.Log("Hit Front: " + hitColliders[i].name + i);
                 //Increase the number of Colliders in the array
@@ -123,13 +133,13 @@ public class FacesOccupationController : MonoBehaviour
     {
         if (cube.isInCurrentCube)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(cubeUp.transform.position, 0.1f);
+            Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[4].transform.position, 0.1f);
 
             int i = 0;
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
-                isUpOccupied = true;
+                isOccupied[4] = true;
                 //Output all of the collider names
                 Debug.Log("Hit Up: " + hitColliders[i].name + i);
                 //Increase the number of Colliders in the array
@@ -148,16 +158,16 @@ public class FacesOccupationController : MonoBehaviour
     {
         if (cube.isInCurrentCube)
         {
-            if (!isRightOccupied)
-                Gizmos.DrawSphere(cubeRight.transform.position, 0.1f);
-            if (!isBackOccupied)
-                Gizmos.DrawSphere(cubeBack.transform.position, 0.1f);
-            if (!isLeftOccupied)
-                Gizmos.DrawSphere(cubeLeft.transform.position, 0.1f);
-            if (!isFrontOccupied)
-                Gizmos.DrawSphere(cubeFront.transform.position, 0.1f);
-            if (!isUpOccupied)
-                Gizmos.DrawSphere(cubeUp.transform.position, 0.1f);
+            if (!isOccupied[0])
+                Gizmos.DrawSphere(cubeFaces[0].transform.position, 0.1f);
+            if (!isOccupied[1])
+                Gizmos.DrawSphere(cubeFaces[1].transform.position, 0.1f);
+            if (!isOccupied[2])
+                Gizmos.DrawSphere(cubeFaces[2].transform.position, 0.1f);
+            if (!isOccupied[3])
+                Gizmos.DrawSphere(cubeFaces[3].transform.position, 0.1f);
+            if (!isOccupied[4])
+                Gizmos.DrawSphere(cubeFaces[4].transform.position, 0.1f);
         }
         
     }
@@ -169,16 +179,40 @@ public class FacesOccupationController : MonoBehaviour
     {
         if (cube.isInCurrentCube)
         {
-            if (!isRightOccupied)
+            if (!isOccupied[0])
                 RightSideCollisionDetection();
-            if (!isBackOccupied)
+            if (!isOccupied[1])
                 BackSideCollisionDetection();
-            if (!isLeftOccupied)
+            if (!isOccupied[2])
                 LeftSideCollisionDetection();
-            if (!isFrontOccupied)
+            if (!isOccupied[3])
                 FrontSideCollisionDetection();
-            if (!isUpOccupied)
+            if (!isOccupied[4])
                 UpSideCollisionDetection();
+        }
+
+    }
+
+
+
+    public IEnumerator RoamAroundUnoccupiedFacesOfCurrentCube()
+    {
+
+        while (true)
+        {
+            if (!cube.isInCurrentCube)
+                yield break;
+            if (!isOccupied[cubeFaceCounter])
+            {
+
+                transparentCube.transform.position = cubeFaces[cubeFaceCounter].transform.position;
+                yield return new WaitForSeconds(1);
+                Debug.Log("cunta");
+
+            }
+            cubeFaceCounter++;
+            if (cubeFaceCounter >= cubeFaces.Length)
+                cubeFaceCounter = 0;
         }
 
     }
