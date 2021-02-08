@@ -467,6 +467,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 1596367100186675769, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: cubePrefab
+      value: 
+      objectReference: {fileID: 1596367100186675718, guid: cca20815eb043134398cb80c04d86661, type: 3}
+    - target: {fileID: 1596367100186675769, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: newCube
+      value: 
+      objectReference: {fileID: 1596367100186675718, guid: cca20815eb043134398cb80c04d86661, type: 3}
     - target: {fileID: 1596367100186675772, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: isOccupied.Array.size
       value: 5

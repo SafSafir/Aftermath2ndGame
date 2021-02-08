@@ -21,10 +21,6 @@ public class CubeController : MonoBehaviour
         SpawnNextCube();
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
 
 
     /// <summary>
@@ -37,7 +33,8 @@ public class CubeController : MonoBehaviour
         {
             
             cube.isInCurrentCube = false;
-            newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, Quaternion.identity);
+            ClearOccupationStates();
+            Generate();
             DisableCurrentCubeFeatures();
         }
     }
@@ -50,6 +47,26 @@ public class CubeController : MonoBehaviour
         cube.enabled = false;
         facesOccupationController.enabled = false;
         this.enabled = false;
+    }
+
+
+    /// <summary>
+    /// This method is for clearing faces occpation states of cube due to generate next cube properly.
+    /// </summary>
+    private void ClearOccupationStates()
+    {
+        for (int i = 0; i < facesOccupationController.isOccupied.Length; i++)
+        {
+            facesOccupationController.isOccupied[i] = false;
+        }
+    }
+
+    /// <summary>
+    /// This method is for instantiate new cube
+    /// </summary>
+    private void Generate()
+    {
+        newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, Quaternion.identity);
     }
 
 }

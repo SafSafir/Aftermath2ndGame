@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702c42924ab20964b88cd2758123767a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCube: {fileID: 1596367100186675718}
+  cubePrefab: {fileID: 0}
 --- !u!114 &1596367100186675772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,11 +268,7 @@ MonoBehaviour:
   - {fileID: 1596367100356457063}
   - {fileID: 1596367098464431915}
   - {fileID: 1596367099495444554}
-  isRightOccupied: 0
-  isBackOccupied: 0
-  isLeftOccupied: 0
-  isFrontOccupied: 0
-  isUpOccupied: 0
+  isOccupied: 0000000000
 --- !u!1 &1596367100356457063
 GameObject:
   m_ObjectHideFlags: 0
