@@ -39,15 +39,6 @@ public class FacesOccupationController : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
-    {
-        RemoveFacesColliderBasedOnFaceOccupation();
-    }
-
-
-   
-
-
     private void RightSideCollisionDetection()
     {
         if (cube.isInCurrentCube)
@@ -200,6 +191,7 @@ public class FacesOccupationController : MonoBehaviour
 
         while (true)
         {
+            RemoveFacesColliderBasedOnFaceOccupation();
             if (!cube.isInCurrentCube)
                 yield break;
             if (!isOccupied[cubeFaceCounter])
