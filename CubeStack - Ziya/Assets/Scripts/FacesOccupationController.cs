@@ -31,6 +31,7 @@ public class FacesOccupationController : MonoBehaviour
 
     private void Start()
     {
+        
         if (cube.isInCurrentCube)
         {
           StartCoroutine(RoamAroundUnoccupiedFacesOfCurrentCube());

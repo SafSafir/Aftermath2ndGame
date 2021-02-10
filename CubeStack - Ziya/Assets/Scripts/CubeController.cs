@@ -6,6 +6,8 @@ public class CubeController : MonoBehaviour
 {
     public GameObject newCube;
 
+    public GameObject prevCube;
+
     Cube cube;
 
     FacesOccupationController facesOccupationController;
@@ -14,11 +16,14 @@ public class CubeController : MonoBehaviour
     {
         cube = GetComponent<Cube>();
         facesOccupationController = GetComponent<FacesOccupationController>();
+        SetConnectedBody();
+      
     }
 
     private void Update()
     {
         SpawnNextCube();
+
     }
 
 
@@ -30,8 +35,7 @@ public class CubeController : MonoBehaviour
     {
         
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            
+        {  
             cube.isInCurrentCube = false;
             ClearOccupationStates();
             Generate();
@@ -51,6 +55,15 @@ public class CubeController : MonoBehaviour
 
 
     /// <summary>
+    /// This method is for instantiate new cube
+    /// </summary>
+    private void Generate()
+    {
+        newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, Quaternion.identity);
+    }
+
+
+    /// <summary>
     /// This method is for clearing faces occpation states of cube due to generate next cube properly.
     /// </summary>
     private void ClearOccupationStates()
@@ -61,12 +74,10 @@ public class CubeController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// This method is for instantiate new cube
-    /// </summary>
-    private void Generate()
-    {
-        newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, Quaternion.identity);
-    }
 
+    private void SetConnectedBody()
+    {
+        gameObject.GetComponent<FixedJoint>().connectedBody = prevCube.GetComponent<Rigidbody>();
+    }
+ 
 }
