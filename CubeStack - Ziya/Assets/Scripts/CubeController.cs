@@ -5,8 +5,7 @@ using UnityEngine;
 public class CubeController : MonoBehaviour
 {
     public GameObject newCube;
-
-    public GameObject prevCube;
+    public GameObject connectedBody;
 
     Cube cube;
 
@@ -16,8 +15,8 @@ public class CubeController : MonoBehaviour
     {
         cube = GetComponent<Cube>();
         facesOccupationController = GetComponent<FacesOccupationController>();
+
         SetConnectedBody();
-      
     }
 
     private void Update()
@@ -59,7 +58,8 @@ public class CubeController : MonoBehaviour
     /// </summary>
     private void Generate()
     {
-        newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, Quaternion.identity);
+        newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, facesOccupationController.transparentCube.transform.rotation);
+
     }
 
 
@@ -74,10 +74,12 @@ public class CubeController : MonoBehaviour
         }
     }
 
-
     private void SetConnectedBody()
     {
-        gameObject.GetComponent<FixedJoint>().connectedBody = prevCube.GetComponent<Rigidbody>();
+        
+        gameObject.GetComponent<ConfigurableJoint>().connectedBody = connectedBody.GetComponent<Rigidbody>();
+        gameObject.transform.parent = connectedBody.transform;
     }
- 
+
+
 }

@@ -51,9 +51,6 @@ public class FacesOccupationController : MonoBehaviour
             while (i < hitColliders.Length)
             {
                 isOccupied[0] = true;
-                //Output all of the collider names
-                Debug.Log("Hit Right: " + hitColliders[i].name + i);
-                //Increase the number of Colliders in the array
                 i++;
             }
         }
@@ -71,9 +68,6 @@ public class FacesOccupationController : MonoBehaviour
             while (i < hitColliders.Length)
             {
                 isOccupied[1] = true;
-                //Output all of the collider names
-                Debug.Log("Hit Back: " + hitColliders[i].name + i);
-                //Increase the number of Colliders in the array
                 i++;
             }
         }
@@ -92,9 +86,6 @@ public class FacesOccupationController : MonoBehaviour
             while (i < hitColliders.Length)
             {
                 isOccupied[2] = true;
-                //Output all of the collider names
-                Debug.Log("Hit Left: " + hitColliders[i].name + i);
-                //Increase the number of Colliders in the array
                 i++;
             }
         }
@@ -112,9 +103,6 @@ public class FacesOccupationController : MonoBehaviour
             while (i < hitColliders.Length)
             {
                 isOccupied[3] = true;
-                //Output all of the collider names
-                Debug.Log("Hit Front: " + hitColliders[i].name + i);
-                //Increase the number of Colliders in the array
                 i++;
             }
         }
@@ -132,9 +120,6 @@ public class FacesOccupationController : MonoBehaviour
             while (i < hitColliders.Length)
             {
                 isOccupied[4] = true;
-                //Output all of the collider names
-                Debug.Log("Hit Up: " + hitColliders[i].name + i);
-                //Increase the number of Colliders in the array
                 i++;
             }
         }
@@ -199,8 +184,8 @@ public class FacesOccupationController : MonoBehaviour
             {
 
                 transparentCube.transform.position = cubeFaces[cubeFaceCounter].transform.position;
-                yield return new WaitForSeconds(1);
-                Debug.Log("cunta");
+                transparentCube.transform.rotation = this.gameObject.transform.rotation;
+                yield return new WaitForSeconds(0.75f);
 
             }
             cubeFaceCounter++;
