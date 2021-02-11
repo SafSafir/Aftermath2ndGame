@@ -370,7 +370,7 @@ PrefabInstance:
       objectReference: {fileID: 1790158692}
     - target: {fileID: 1596367100186675773, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 1596367100186675773, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: m_LocalPosition.y
@@ -416,6 +416,18 @@ PrefabInstance:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 238967283}
+    - target: {fileID: 6853852819104295291, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: m_EnablePreprocessing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853852819104295291, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: m_BreakForce
+      value: Infinity
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853852819104295291, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: m_BreakTorque
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cca20815eb043134398cb80c04d86661, type: 3}
 --- !u!1001 &1624528641
