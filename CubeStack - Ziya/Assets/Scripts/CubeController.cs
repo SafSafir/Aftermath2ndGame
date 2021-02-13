@@ -34,7 +34,8 @@ public class CubeController : MonoBehaviour
     {
         
         if (Input.GetKeyDown(KeyCode.Space))
-        {  
+        {
+            ResetCenterofMass();
             cube.isInCurrentCube = false;
             ClearOccupationStates();
             Generate();
@@ -74,12 +75,24 @@ public class CubeController : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// This method is for connetcting the cube to main body
+    /// </summary>
     private void SetConnectedBody()
     {
-        
-        gameObject.GetComponent<ConfigurableJoint>().connectedBody = connectedBody.GetComponent<Rigidbody>();
-        gameObject.transform.parent = connectedBody.transform;
+
+        this.gameObject.transform.parent = connectedBody.transform;
     }
 
+
+    /// <summary>
+    /// This method is for resetting the center of gravity of connected body due to make it knock over
+    /// </summary>
+    private void ResetCenterofMass()
+    {
+        connectedBody.GetComponent<Rigidbody>().useGravity = false;
+        connectedBody.GetComponent<Rigidbody>().useGravity = true;
+    }
 
 }
