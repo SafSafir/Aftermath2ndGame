@@ -10,7 +10,7 @@ public class CubeController : MonoBehaviour
     Cube cube;
 
     FacesOccupationController facesOccupationController;
-
+  
     private void Awake()
     {
         cube = GetComponent<Cube>();
@@ -22,7 +22,7 @@ public class CubeController : MonoBehaviour
     private void Update()
     {
         SpawnNextCube();
-
+        
     }
 
 
@@ -35,6 +35,7 @@ public class CubeController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            PlayCubeParticleAnimation();
             ResetCenterofMass();
             cube.isInCurrentCube = false;
             ClearOccupationStates();
@@ -60,7 +61,7 @@ public class CubeController : MonoBehaviour
     private void Generate()
     {
         newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, facesOccupationController.transparentCube.transform.rotation);
-
+  
     }
 
 
@@ -94,5 +95,30 @@ public class CubeController : MonoBehaviour
         connectedBody.GetComponent<Rigidbody>().useGravity = false;
         connectedBody.GetComponent<Rigidbody>().useGravity = true;
     }
-
+    /// <summary>
+    /// This method is for playing particle animation of cube
+    /// </summary>
+    private void PlayCubeParticleAnimation() 
+    {
+        if (facesOccupationController.transparentCube.transform.position == facesOccupationController.cubeFaces[0].transform.position)
+        {
+            facesOccupationController.cubeFaces[0].GetComponentInChildren<ParticleSystem>().Play();
+        }
+        else if (facesOccupationController.transparentCube.transform.position == facesOccupationController.cubeFaces[1].transform.position)
+        {
+            facesOccupationController.cubeFaces[1].GetComponentInChildren<ParticleSystem>().Play();
+        }
+        else if (facesOccupationController.transparentCube.transform.position == facesOccupationController.cubeFaces[2].transform.position)
+        {
+            facesOccupationController.cubeFaces[2].GetComponentInChildren<ParticleSystem>().Play();
+        }
+        else if (facesOccupationController.transparentCube.transform.position == facesOccupationController.cubeFaces[3].transform.position)
+        {
+            facesOccupationController.cubeFaces[3].GetComponentInChildren<ParticleSystem>().Play();
+        }
+        else if (facesOccupationController.transparentCube.transform.position == facesOccupationController.cubeFaces[4].transform.position)
+        {
+            facesOccupationController.cubeFaces[4].GetComponentInChildren<ParticleSystem>().Play();
+        }
+    }
 }

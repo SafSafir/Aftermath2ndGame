@@ -73,7 +73,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - Color_3D8528BB: {r: 1, g: 0, b: 0.708725, a: 0}
+    - Color_3D8528BB: {r: 0.7075472, g: 0.34140787, b: 0.15619436, a: 0}
     - Color_8EB6A5A4: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
     - _Color: {r: 0.39760563, g: 1, b: 0.069811285, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
