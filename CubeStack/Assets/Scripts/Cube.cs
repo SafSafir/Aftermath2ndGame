@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+    public bool isInCurrentCube;
 
-
-    /// <summary>
-    /// This method is for detecting the last end point
-    /// </summary>
-    /// <returns></returns>
-    public Vector3 ReturnEndPoint()
+    private void Awake()
     {
-
-        Vector3 CalculatedEndPoint = transform.position + Vector3.up;
-
-        return CalculatedEndPoint;
+        isInCurrentCube = true;
     }
+
 }

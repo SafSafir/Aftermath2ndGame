@@ -15,6 +15,5 @@ public class swicthColors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        material.
     }
 }
