@@ -35,7 +35,7 @@ public class CubeController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ResetCenterofMass();
+            ReCalculateCenterofMass();
             cube.isInCurrentCube = false;
             ClearOccupationStates();
             Generate();
@@ -89,7 +89,7 @@ public class CubeController : MonoBehaviour
     /// <summary>
     /// This method is for resetting the center of gravity of connected body due to make it knock over
     /// </summary>
-    private void ResetCenterofMass()
+    private void ReCalculateCenterofMass()
     {
         connectedBody.GetComponent<Rigidbody>().useGravity = false;
         connectedBody.GetComponent<Rigidbody>().useGravity = true;
