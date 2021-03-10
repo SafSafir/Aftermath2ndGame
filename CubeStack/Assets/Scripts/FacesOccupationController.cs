@@ -46,6 +46,7 @@ public class FacesOccupationController : MonoBehaviour
         {
             Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[0].transform.position, 0.1f);
 
+
             int i = 0;
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
