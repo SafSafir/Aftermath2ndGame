@@ -279,10 +279,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2765214350506518019, guid: 178513730a03dd048a752dd749a18ee3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765214350506518019, guid: 178513730a03dd048a752dd749a18ee3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765214350506518019, guid: 178513730a03dd048a752dd749a18ee3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2982107863260108956, guid: 178513730a03dd048a752dd749a18ee3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 14960488d8d4a734696bcfce69e47064, type: 2}
+      objectReference: {fileID: 2100000, guid: 1274fc7227253fb43b92500d4f9c30c0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 178513730a03dd048a752dd749a18ee3, type: 3}
 --- !u!1 &1110628750
@@ -299,7 +311,7 @@ GameObject:
   - component: {fileID: 1110628754}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,13 +374,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110628750}
-  m_LocalRotation: {x: 0.18500851, y: -0.24270806, z: 0.047210544, w: 0.9511235}
-  m_LocalPosition: {x: 5.14, y: 5.9, z: -9.36}
+  m_LocalRotation: {x: 0.35355338, y: -0.35355338, z: 0.1464466, w: 0.8535535}
+  m_LocalPosition: {x: 6, y: 6, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 22.015, y: -28.631, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: -45, z: 0}
 --- !u!114 &1110628754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596367100186675773, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1596367100186675773, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: m_LocalPosition.y
@@ -502,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1596367100186675773, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1596367100186675773, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: m_LocalRotation.x
@@ -568,6 +580,18 @@ PrefabInstance:
       propertyPath: particle.Array.data[4]
       value: 
       objectReference: {fileID: 1481443751}
+    - target: {fileID: 8386923205854272286, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: offset.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386923205854272286, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: offset.z
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386923205854272286, guid: cca20815eb043134398cb80c04d86661, type: 3}
+      propertyPath: offset.x
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8479228683186444853, guid: cca20815eb043134398cb80c04d86661, type: 3}
       propertyPath: transparentCube
       value: 

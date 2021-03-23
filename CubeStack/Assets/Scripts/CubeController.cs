@@ -7,6 +7,15 @@ public class CubeController : MonoBehaviour
     public GameObject newCube;
     public GameObject connectedBody;
 
+
+    private GameObject mainCamera;
+    public float smoothSpeed = 0.125f;
+    public Vector3 offset;
+
+
+
+
+
     Cube cube;
 
     FacesOccupationController facesOccupationController;
@@ -15,7 +24,7 @@ public class CubeController : MonoBehaviour
     {
         cube = GetComponent<Cube>();
         facesOccupationController = GetComponent<FacesOccupationController>();
-
+        mainCamera = GameObject.FindWithTag("MainCamera");
         SetConnectedBody();
     }
 
@@ -25,7 +34,12 @@ public class CubeController : MonoBehaviour
         
     }
 
+private void LateUpdate()
+    {
 
+        ControlCamera();
+
+    }
 
     /// <summary>
     /// This method is for spawning new cube to the scene with current cube features. 
@@ -95,6 +109,19 @@ public class CubeController : MonoBehaviour
         connectedBody.GetComponent<Rigidbody>().useGravity = false;
         connectedBody.GetComponent<Rigidbody>().useGravity = true;
     }
+
+
+    /// <summary>
+    /// This method is for controlling the main camera with generated new cubes 
+    /// </summary>
+    private void ControlCamera()
+    {
+        Vector3 desiredPosition = newCube.transform.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(mainCamera.transform.position, desiredPosition, smoothSpeed);
+        mainCamera.transform.position = smoothedPosition;
+    }
+
+
     /// <summary>
     /// This method is for playing particle animation of cube
     /// </summary>
