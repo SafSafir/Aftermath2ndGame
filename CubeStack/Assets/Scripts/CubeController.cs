@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +7,9 @@ public class CubeController : MonoBehaviour
     public GameObject newCube;
     public GameObject connectedBody;
 
-
     private GameObject mainCamera;
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
-
-
 
 
 
@@ -24,6 +21,7 @@ public class CubeController : MonoBehaviour
     {
         cube = GetComponent<Cube>();
         facesOccupationController = GetComponent<FacesOccupationController>();
+        
         mainCamera = GameObject.FindWithTag("MainCamera");
         SetConnectedBody();
     }
