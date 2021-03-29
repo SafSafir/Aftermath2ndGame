@@ -51,6 +51,9 @@ public class FacesOccupationController : MonoBehaviour
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
+                if(hitColliders[i].gameObject.tag == "Checkpoint"){
+                    break;
+                }
                 isOccupied[0] = true;
                 i++;
             }
@@ -68,6 +71,9 @@ public class FacesOccupationController : MonoBehaviour
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
+                if(hitColliders[i].gameObject.tag == "Checkpoint"){
+                    break;
+                }
                 isOccupied[1] = true;
                 i++;
             }
@@ -86,6 +92,9 @@ public class FacesOccupationController : MonoBehaviour
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
+                if(hitColliders[i].gameObject.tag == "Checkpoint"){
+                    break;
+                }
                 isOccupied[2] = true;
                 i++;
             }
@@ -103,6 +112,9 @@ public class FacesOccupationController : MonoBehaviour
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
+                if(hitColliders[i].gameObject.tag == "Checkpoint"){
+                    break;
+                }
                 isOccupied[3] = true;
                 i++;
             }
@@ -120,6 +132,9 @@ public class FacesOccupationController : MonoBehaviour
             //Check when there is a new collider coming into contact with the box
             while (i < hitColliders.Length)
             {
+                if(hitColliders[i].gameObject.tag == "Checkpoint"){
+                    break;
+                }
                 isOccupied[4] = true;
                 i++;
             }
@@ -195,6 +210,7 @@ public class FacesOccupationController : MonoBehaviour
         }
 
     }
+
 
 
     void OnDrawGizmos()
