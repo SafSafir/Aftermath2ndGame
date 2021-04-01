@@ -14,9 +14,8 @@ public class CubeController : MonoBehaviour
 
 
     Cube cube;
-
     FacesOccupationController facesOccupationController;
-  
+    
     private void Awake()
     {
         cube = GetComponent<Cube>();
@@ -44,9 +43,10 @@ private void LateUpdate()
     /// </summary>
     public void SpawnNextCube()
     {
-        
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if(GameController.cubeCounter <=0)
+                return;
             PlayCubeParticleAnimation();
             ResetCenterofMass();
             cube.isInCurrentCube = false;
@@ -72,8 +72,9 @@ private void LateUpdate()
     /// </summary>
     private void Generate()
     {
+        
         newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, facesOccupationController.transparentCube.transform.rotation);
-  
+        GameController.cubeCounter--;
     }
 
 
@@ -146,4 +147,5 @@ private void LateUpdate()
             facesOccupationController.cubeFaces[4].GetComponentInChildren<ParticleSystem>().Play();
         }
     }
+
 }
