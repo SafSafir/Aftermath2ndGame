@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Checkpoint
-  - Cube
+  - Current Cube
+  - Previous Cube
   layers:
   - Default
   - TransparentFX

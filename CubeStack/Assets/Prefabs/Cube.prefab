@@ -24196,12 +24196,11 @@ GameObject:
   - component: {fileID: 1596367100186675770}
   - component: {fileID: 1596367100186675771}
   - component: {fileID: 1596367100186675768}
-  - component: {fileID: 6700001379546130009}
   - component: {fileID: 8386923205854272286}
   - component: {fileID: 8479228683186444853}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Cube
+  m_TagString: Current Cube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24287,19 +24286,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6700001379546130009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596367100186675718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471934d8b1394974ca88dfe432a4b008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInCurrentCube: 0
 --- !u!114 &8386923205854272286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24314,8 +24300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newCube: {fileID: 1596367100186675718}
   connectedBody: {fileID: 0}
-  smoothSpeed: 0.125
-  offset: {x: 0, y: 0, z: 0}
+  currentCubePosition: {fileID: 0}
 --- !u!114 &8479228683186444853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24328,7 +24313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50a19752990dc844a52269798f5ecf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transparentCube: {fileID: 0}
+  transparentCube: {fileID: 2047035927233593051, guid: 178513730a03dd048a752dd749a18ee3, type: 3}
   cubeFaces:
   - {fileID: 1596367098751992112}
   - {fileID: 1596367098416274272}

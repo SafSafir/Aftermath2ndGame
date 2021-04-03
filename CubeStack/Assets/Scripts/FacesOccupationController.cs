@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FacesOccupationController : MonoBehaviour
 {
-
+    
 
     public GameObject transparentCube;
 
@@ -12,17 +12,13 @@ public class FacesOccupationController : MonoBehaviour
     public GameObject[] cubeFaces;
 
     public bool[] isOccupied;
-
-    Cube cube;
-
+    
     private int cubeFaceCounter;
 
     private bool isGameStarted;
 
     private void Awake()
     {
-
-        cube = GetComponent<Cube>();
 
         cubeFaceCounter = 0;
 
@@ -32,7 +28,7 @@ public class FacesOccupationController : MonoBehaviour
     private void Start()
     {
         
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
           StartCoroutine(RoamAroundUnoccupiedFacesOfCurrentCube());
         }
@@ -42,7 +38,7 @@ public class FacesOccupationController : MonoBehaviour
 
     private void RightSideCollisionDetection()
     {
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[0].transform.position, 0.1f);
 
@@ -63,7 +59,7 @@ public class FacesOccupationController : MonoBehaviour
 
     private void BackSideCollisionDetection()
     {
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[1].transform.position, 0.1f);
 
@@ -84,7 +80,7 @@ public class FacesOccupationController : MonoBehaviour
 
     private void LeftSideCollisionDetection()
     {
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[2].transform.position, 0.1f);
 
@@ -104,7 +100,7 @@ public class FacesOccupationController : MonoBehaviour
 
     private void FrontSideCollisionDetection()
     {
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[3].transform.position, 0.1f);
 
@@ -124,7 +120,7 @@ public class FacesOccupationController : MonoBehaviour
 
     private void UpSideCollisionDetection()
     {
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
             Collider[] hitColliders = Physics.OverlapSphere(cubeFaces[4].transform.position, 0.1f);
 
@@ -149,7 +145,7 @@ public class FacesOccupationController : MonoBehaviour
     /// </summary>
     private void DrawGizmosOfCubeFaces()
     {
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
             if (!isOccupied[0])
                 Gizmos.DrawSphere(cubeFaces[0].transform.position, 0.1f);
@@ -170,7 +166,7 @@ public class FacesOccupationController : MonoBehaviour
     /// </summary>
     private void RemoveFacesColliderBasedOnFaceOccupation()
     {
-        if (cube.isInCurrentCube)
+        if (this.gameObject.CompareTag("Current Cube"))
         {
             if (!isOccupied[0])
                 RightSideCollisionDetection();
@@ -194,7 +190,7 @@ public class FacesOccupationController : MonoBehaviour
         while (true)
         {
             RemoveFacesColliderBasedOnFaceOccupation();
-            if (!cube.isInCurrentCube)
+            if (!this.gameObject.CompareTag("Current Cube"))
                 yield break;
             if (!isOccupied[cubeFaceCounter])
             {

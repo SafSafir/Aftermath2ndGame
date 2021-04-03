@@ -5,20 +5,11 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
 
-    private void Update() {
-        
-    }
-
-    // devam edilecek yer
-    public void GiveMoreCubeOnCheckpoint(){
-        Collider[] hitColliders = Physics.OverlapSphere(this.gameObject.transform.position, 0.1f);
-        if(hitColliders[0].gameObject.CompareTag("Cube")){
+     private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Current Cube")){
+            Debug.Log("Ben bir cube'a degiyorum");
             GameController.cubeCounter += 5;
+            Destroy(this.gameObject);
         }
-            
-    }
-
-    private void OnDrawGizmos() {
-        Gizmos.DrawSphere(this.gameObject.transform.position, 0.1f);
     }
 }

@@ -7,21 +7,13 @@ public class CubeController : MonoBehaviour
     public GameObject newCube;
     public GameObject connectedBody;
 
-    private GameObject mainCamera;
-    public float smoothSpeed = 0.125f;
-    public Vector3 offset;
 
-
-
-    Cube cube;
     FacesOccupationController facesOccupationController;
+
     
     private void Awake()
     {
-        cube = GetComponent<Cube>();
         facesOccupationController = GetComponent<FacesOccupationController>();
-        
-        mainCamera = GameObject.FindWithTag("MainCamera");
         SetConnectedBody();
     }
 
@@ -29,13 +21,6 @@ public class CubeController : MonoBehaviour
     {
         SpawnNextCube();
         
-    }
-
-private void LateUpdate()
-    {
-
-        ControlCamera();
-
     }
 
     /// <summary>
@@ -49,9 +34,9 @@ private void LateUpdate()
                 return;
             PlayCubeParticleAnimation();
             ResetCenterofMass();
-            cube.isInCurrentCube = false;
             ClearOccupationStates();
             Generate();
+            this.gameObject.tag = "Previous Cube";
             DisableCurrentCubeFeatures();
         }
     }
@@ -61,7 +46,6 @@ private void LateUpdate()
     /// </summary>
     private void DisableCurrentCubeFeatures()
     {
-        cube.enabled = false;
         facesOccupationController.enabled = false;
         this.enabled = false;
     }
@@ -72,7 +56,6 @@ private void LateUpdate()
     /// </summary>
     private void Generate()
     {
-        
         newCube = Instantiate(this.gameObject, facesOccupationController.transparentCube.transform.position, facesOccupationController.transparentCube.transform.rotation);
         GameController.cubeCounter--;
     }
@@ -109,16 +92,6 @@ private void LateUpdate()
         connectedBody.GetComponent<Rigidbody>().useGravity = true;
     }
 
-
-    /// <summary>
-    /// This method is for controlling the main camera with generated new cubes 
-    /// </summary>
-    private void ControlCamera()
-    {
-        Vector3 desiredPosition = newCube.transform.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(mainCamera.transform.position, desiredPosition, smoothSpeed);
-        mainCamera.transform.position = smoothedPosition;
-    }
 
 
     /// <summary>
