@@ -5,10 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     static public float mouseSensitivity;
-
-    public Transform maxHeight;
-
+    static public Vector3 maxHeightPosition;
+    public Transform maxHeightTransform;
     private void Awake() {
+        maxHeightPosition = maxHeightTransform.position;
         mouseSensitivity = 400f;
     }
 
@@ -20,8 +20,9 @@ public class CameraController : MonoBehaviour
 
 
     void RotateCamera(){
-        transform.LookAt(maxHeight.position);
-        transform.RotateAround(maxHeight.position, Vector3.up, Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime + 0.0000001f);
+        transform.LookAt(maxHeightPosition);
+        transform.RotateAround(maxHeightPosition, Vector3.up, Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime + 0.0000001f);
+        transform.RotateAround(maxHeightPosition, Vector3.left, Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime + 0.0000001f);
     }
 
 }

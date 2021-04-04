@@ -5,16 +5,13 @@ using UnityEngine;
 public class FacesOccupationController : MonoBehaviour
 {
     
-
     public GameObject transparentCube;
 
 
+
     public GameObject[] cubeFaces;
-
     public bool[] isOccupied;
-    
     private int cubeFaceCounter;
-
     private bool isGameStarted;
 
     private void Awake()
@@ -131,6 +128,8 @@ public class FacesOccupationController : MonoBehaviour
                 if(hitColliders[i].gameObject.tag == "Checkpoint"){
                     break;
                 }
+                
+                
                 isOccupied[4] = true;
                 i++;
             }

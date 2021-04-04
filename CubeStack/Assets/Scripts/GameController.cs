@@ -8,7 +8,7 @@ public class GameController : MonoBehaviour
     
 
     private void Awake() {
-        cubeCounter = 5;
+        cubeCounter = 200;
         
     }
 }
