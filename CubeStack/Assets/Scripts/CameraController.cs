@@ -5,10 +5,9 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     static public float mouseSensitivity;
-    static public Vector3 maxHeightPosition;
-    public Transform maxHeightTransform;
+    public GameObject connectedBody;
+    Vector3 centerOfMass;
     private void Awake() {
-        maxHeightPosition = maxHeightTransform.position;
         mouseSensitivity = 400f;
     }
 
@@ -20,9 +19,13 @@ public class CameraController : MonoBehaviour
 
 
     void RotateCamera(){
-        transform.LookAt(maxHeightPosition);
-        transform.RotateAround(maxHeightPosition, Vector3.up, Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime + 0.0000001f);
-        transform.RotateAround(maxHeightPosition, Vector3.left, Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime + 0.0000001f);
+        Vector3 centerOfMass = connectedBody.GetComponent<Rigidbody>().centerOfMass;
+
+       
+        //mouse control just for checkig
+        //remove afterwards
+        transform.RotateAround(centerOfMass, Vector3.up, Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime + 0.0000001f);
+        transform.RotateAround(centerOfMass, Vector3.left, Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime + 0.0000001f);
     }
 
 }

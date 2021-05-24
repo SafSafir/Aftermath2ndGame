@@ -7,14 +7,11 @@ public class CubeController : MonoBehaviour
     public GameObject newCube;
     public GameObject connectedBody;
 
-    public CameraController cameraController;
-
     FacesOccupationController facesOccupationController;
 
     
     private void Awake()
     {
-        cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
         facesOccupationController = GetComponent<FacesOccupationController>();
         SetConnectedBody();
     }
@@ -22,7 +19,7 @@ public class CubeController : MonoBehaviour
     private void Update()
     {
         SpawnNextCube();
-        
+      
     }
 
     /// <summary>
@@ -38,8 +35,6 @@ public class CubeController : MonoBehaviour
             ResetCenterofMass();
             ClearOccupationStates();
             Generate();
-            ChangeMaxHeight();
-            MoveCamera();
             this.gameObject.tag = "Previous Cube";
             DisableCurrentCubeFeatures();
         }
@@ -99,19 +94,8 @@ public class CubeController : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// This method is for change of  maxHeight.
-    /// </summary>
-    private void ChangeMaxHeight(){
-        CameraController.maxHeightPosition = new Vector3(CameraController.maxHeightPosition.x, newCube.transform.position.y, CameraController.maxHeightPosition.z);
-    }
 
-    /// <summary>
-    /// This method is for change of camera height.
-    /// </summary>
-    void MoveCamera(){
-        cameraController.gameObject.transform.position = new Vector3(cameraController.gameObject.transform.position.x, newCube.transform.position.y + 6.5f, cameraController.gameObject.transform.position.z);
-    }
+
 
     /// <summary>
     /// This method is for playing particle animation of cube
